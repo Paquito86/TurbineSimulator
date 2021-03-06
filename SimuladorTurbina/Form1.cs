@@ -16,6 +16,8 @@ namespace SimuladorTurbina
         float SHSetpoint = 0;
         float SLSetpoint = 0;
 
+        int SAVStep = 1;
+
         #endregion VdF Variables de Formulario
 
         public Form1()
@@ -72,7 +74,7 @@ namespace SimuladorTurbina
                 SHValor = SHSetpoint;
                 textBoxSHValor.Text = Convert.ToString(SHValor);
                 timerSH.Enabled = false;
-                buttonSHMarcha.BackColor = System.Drawing.Color.Yellow;
+                buttonSHMarcha.BackColor = System.Drawing.Color.GreenYellow;
                 buttonSHParo.BackColor = default;
             }
         }
@@ -120,7 +122,7 @@ namespace SimuladorTurbina
                 SLValor = SLSetpoint;
                 textBoxSLValor.Text = Convert.ToString(SLValor);
                 timerSL.Enabled = false;
-                buttonSLMarcha.BackColor = System.Drawing.Color.Yellow;
+                buttonSLMarcha.BackColor = System.Drawing.Color.GreenYellow;
                 buttonSLParo.BackColor = default;
             }
         }
@@ -150,6 +152,62 @@ namespace SimuladorTurbina
         #endregion SL
 
         #region SV
+        #region SAVStep
+        private void buttonSAVStepSize1_Click(object sender, EventArgs e)
+        {
+            SAVStep = 1;
+        }
+        private void buttonSAVStepSize5_Click(object sender, EventArgs e)
+        {
+            SAVStep = 5;
+        }
+
+        private void buttonSAVStepSize10_Click(object sender, EventArgs e)
+        {
+            SAVStep = 10;
+        }
+        private void buttonSAVStepUp_Click(object sender, EventArgs e)
+        {
+            SAVEstado += SAVStep;
+            if (SAVEstado > 100)
+            {
+                MessageBox.Show("La apertura de la válvula no puede superar el 100%.", "SCADA Error V/2",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SAVEstado = 100;
+            }
+            textBoxSAVEstado.Text = Convert.ToString(SAVEstado);
+
+            if (SAVEstado >= 1)
+            {
+                buttonSAVOn.BackColor = Color.GreenYellow;
+                buttonSAVOff.BackColor = default;
+            }
+            else
+            {
+                buttonSAVOn.BackColor = default;
+            }
+        }
+        private void buttonSAVStepDown_Click(object sender, EventArgs e)
+        {
+            SAVEstado -= SAVStep;
+            if (SAVEstado < 0)
+            {
+                MessageBox.Show("El porcentaje de apertura de la válvula no puede ser negativo.", "SCADA Error V/1",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SAVEstado = 0;
+            }
+            textBoxSAVEstado.Text = Convert.ToString(SAVEstado);
+
+            if (SAVEstado >= 1)
+            {
+                buttonSAVOn.BackColor = Color.GreenYellow;
+            }
+            else
+            {
+                buttonSAVOn.BackColor = default;
+            }
+        }
+        #endregion SAVStep
         #region SAV
         #region SAV+
         private void buttonSAVOn_Click(object sender, EventArgs e)
@@ -169,7 +227,7 @@ namespace SimuladorTurbina
                 SAVEstado = 100;
                 textBoxSAVEstado.Text = Convert.ToString(SAVEstado);
                 timerSAV.Enabled = false;
-                buttonSAVOn.BackColor = System.Drawing.Color.Yellow;
+                buttonSAVOn.BackColor = System.Drawing.Color.GreenYellow;
                 buttonSAVOff.BackColor = default;
             }
         }
@@ -217,7 +275,7 @@ namespace SimuladorTurbina
                 SDVEstado = 100;
                 textBoxSDVEstado.Text = Convert.ToString(SDVEstado);
                 timerSDV.Enabled = false;
-                buttonSDVOn.BackColor = System.Drawing.Color.Yellow;
+                buttonSDVOn.BackColor = System.Drawing.Color.GreenYellow;
                 buttonSDVOff.BackColor = default;
             }
         }
@@ -251,9 +309,13 @@ namespace SimuladorTurbina
 
 
 
+
+
+
         #endregion SDV-
 
         #endregion SDV
+
         #endregion SV
     }
 }

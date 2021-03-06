@@ -67,6 +67,12 @@ namespace SimuladorTurbina
             this.timerSLDecrement = new System.Windows.Forms.Timer(this.components);
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buttonSAVStepSize10 = new System.Windows.Forms.Button();
+            this.buttonSAVStepSize5 = new System.Windows.Forms.Button();
+            this.buttonSAVStepSize1 = new System.Windows.Forms.Button();
+            this.buttonSAVStepDown = new System.Windows.Forms.Button();
+            this.buttonSAVStepUp = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.buttonSAVOn = new System.Windows.Forms.Button();
@@ -296,7 +302,7 @@ namespace SimuladorTurbina
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Location = new System.Drawing.Point(259, 347);
+            this.groupBox5.Location = new System.Drawing.Point(321, 160);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(241, 136);
             this.groupBox5.TabIndex = 8;
@@ -408,13 +414,19 @@ namespace SimuladorTurbina
             this.groupBox7.Controls.Add(this.groupBox8);
             this.groupBox7.Location = new System.Drawing.Point(12, 347);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(241, 136);
+            this.groupBox7.Size = new System.Drawing.Size(396, 136);
             this.groupBox7.TabIndex = 9;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Sistema de Admisión de Vapor";
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.label12);
+            this.groupBox8.Controls.Add(this.buttonSAVStepSize10);
+            this.groupBox8.Controls.Add(this.buttonSAVStepSize5);
+            this.groupBox8.Controls.Add(this.buttonSAVStepSize1);
+            this.groupBox8.Controls.Add(this.buttonSAVStepDown);
+            this.groupBox8.Controls.Add(this.buttonSAVStepUp);
             this.groupBox8.Controls.Add(this.textBox1);
             this.groupBox8.Controls.Add(this.label10);
             this.groupBox8.Controls.Add(this.buttonSAVOn);
@@ -423,10 +435,69 @@ namespace SimuladorTurbina
             this.groupBox8.Controls.Add(this.label11);
             this.groupBox8.Location = new System.Drawing.Point(6, 19);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(229, 111);
+            this.groupBox8.Size = new System.Drawing.Size(384, 111);
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Válvula de Admisión Principal";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(260, 51);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(118, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Tamaño del paso (step)";
+            // 
+            // buttonSAVStepSize10
+            // 
+            this.buttonSAVStepSize10.Location = new System.Drawing.Point(338, 67);
+            this.buttonSAVStepSize10.Name = "buttonSAVStepSize10";
+            this.buttonSAVStepSize10.Size = new System.Drawing.Size(27, 23);
+            this.buttonSAVStepSize10.TabIndex = 14;
+            this.buttonSAVStepSize10.Text = "10";
+            this.buttonSAVStepSize10.UseVisualStyleBackColor = true;
+            this.buttonSAVStepSize10.Click += new System.EventHandler(this.buttonSAVStepSize10_Click);
+            // 
+            // buttonSAVStepSize5
+            // 
+            this.buttonSAVStepSize5.Location = new System.Drawing.Point(305, 67);
+            this.buttonSAVStepSize5.Name = "buttonSAVStepSize5";
+            this.buttonSAVStepSize5.Size = new System.Drawing.Size(27, 23);
+            this.buttonSAVStepSize5.TabIndex = 13;
+            this.buttonSAVStepSize5.Text = "5";
+            this.buttonSAVStepSize5.UseVisualStyleBackColor = true;
+            this.buttonSAVStepSize5.Click += new System.EventHandler(this.buttonSAVStepSize5_Click);
+            // 
+            // buttonSAVStepSize1
+            // 
+            this.buttonSAVStepSize1.Location = new System.Drawing.Point(272, 67);
+            this.buttonSAVStepSize1.Name = "buttonSAVStepSize1";
+            this.buttonSAVStepSize1.Size = new System.Drawing.Size(27, 23);
+            this.buttonSAVStepSize1.TabIndex = 12;
+            this.buttonSAVStepSize1.Text = "1";
+            this.buttonSAVStepSize1.UseVisualStyleBackColor = true;
+            this.buttonSAVStepSize1.Click += new System.EventHandler(this.buttonSAVStepSize1_Click);
+            // 
+            // buttonSAVStepDown
+            // 
+            this.buttonSAVStepDown.Location = new System.Drawing.Point(182, 74);
+            this.buttonSAVStepDown.Name = "buttonSAVStepDown";
+            this.buttonSAVStepDown.Size = new System.Drawing.Size(75, 23);
+            this.buttonSAVStepDown.TabIndex = 11;
+            this.buttonSAVStepDown.Text = "Step -";
+            this.buttonSAVStepDown.UseVisualStyleBackColor = true;
+            this.buttonSAVStepDown.Click += new System.EventHandler(this.buttonSAVStepDown_Click);
+            // 
+            // buttonSAVStepUp
+            // 
+            this.buttonSAVStepUp.Location = new System.Drawing.Point(182, 46);
+            this.buttonSAVStepUp.Name = "buttonSAVStepUp";
+            this.buttonSAVStepUp.Size = new System.Drawing.Size(75, 23);
+            this.buttonSAVStepUp.TabIndex = 10;
+            this.buttonSAVStepUp.Text = "Step +";
+            this.buttonSAVStepUp.UseVisualStyleBackColor = true;
+            this.buttonSAVStepUp.Click += new System.EventHandler(this.buttonSAVStepUp_Click);
             // 
             // textBox1
             // 
@@ -450,19 +521,19 @@ namespace SimuladorTurbina
             // 
             this.buttonSAVOn.Location = new System.Drawing.Point(6, 19);
             this.buttonSAVOn.Name = "buttonSAVOn";
-            this.buttonSAVOn.Size = new System.Drawing.Size(75, 23);
+            this.buttonSAVOn.Size = new System.Drawing.Size(101, 23);
             this.buttonSAVOn.TabIndex = 7;
-            this.buttonSAVOn.Text = "Apertura";
+            this.buttonSAVOn.Text = "Apertura Total";
             this.buttonSAVOn.UseVisualStyleBackColor = true;
             this.buttonSAVOn.Click += new System.EventHandler(this.buttonSAVOn_Click);
             // 
             // buttonSAVOff
             // 
-            this.buttonSAVOff.Location = new System.Drawing.Point(101, 19);
+            this.buttonSAVOff.Location = new System.Drawing.Point(113, 19);
             this.buttonSAVOff.Name = "buttonSAVOff";
-            this.buttonSAVOff.Size = new System.Drawing.Size(75, 23);
+            this.buttonSAVOff.Size = new System.Drawing.Size(95, 23);
             this.buttonSAVOff.TabIndex = 6;
-            this.buttonSAVOff.Text = "Cierre";
+            this.buttonSAVOff.Text = "Cierre Total";
             this.buttonSAVOff.UseVisualStyleBackColor = true;
             this.buttonSAVOff.Click += new System.EventHandler(this.buttonSAVOff_Click);
             // 
@@ -497,7 +568,7 @@ namespace SimuladorTurbina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 489);
+            this.ClientSize = new System.Drawing.Size(670, 491);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
@@ -571,6 +642,12 @@ namespace SimuladorTurbina
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Timer timerSAV;
         private System.Windows.Forms.Timer timerSAVDecrement;
+        private System.Windows.Forms.Button buttonSAVStepDown;
+        private System.Windows.Forms.Button buttonSAVStepUp;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button buttonSAVStepSize10;
+        private System.Windows.Forms.Button buttonSAVStepSize5;
+        private System.Windows.Forms.Button buttonSAVStepSize1;
     }
 }
 
